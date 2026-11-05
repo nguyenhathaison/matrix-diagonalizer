@@ -1,50 +1,57 @@
 #include <iostream>
 #include <utility>
 
-//std::pair<int, int> findEigenvaluesFromEntries()
-//{
-//
-//}
-
-int main()
+struct TwoByTwoMatrix
 {
-	// Initialize the entries of the matrix
 	int a{};
 	int b{};
 	int c{};
 	int d{};
+};
 
+void getUserInputForMatrix(TwoByTwoMatrix& matrix)
+{
 	// Form of matrix
 	std::cout << "Given a 2x2 matrix of the form:\n";
 	std::cout << "[ " << 'a' << ' ' << 'b' << " ]\n";
 	std::cout << "[ " << 'c' << ' ' << 'd' << " ]\n";
 
-	// Get user input for the 4 entries
-	for (char entry{ 'a' }; entry <= 'd'; ++entry)
-	{
-		std::cout << "Enter entry " << entry << " of the matrix: ";
+	std::cin >> matrix.a;
+	std::cin >> matrix.b;
+	std::cin >> matrix.c;
+	std::cin >> matrix.d;
+}
 
-		switch (entry)
-		{
-		case 'a':
-			std::cin >> a;
-			continue;
-		case 'b':
-			std::cin >> b;
-			continue;
-		case 'c':
-			std::cin >> c;
-			continue;
-		case 'd':
-			std::cin >> d;
-			continue;
-		}
-	}
+std::ostream& operator<<(std::ostream& out, const TwoByTwoMatrix& matrix)
+{
+	out << "\nThe inputted matrix is: \n";
+	out << matrix.a << '\t' << matrix.b << '\n';
+	out << matrix.c << '\t' << matrix.d << '\n';
+
+	return out;
+}
+
+int findDeterminantOfMatrix(int a, int b, int c, int d)
+{
+	return a * c - b * d;
+}
+
+int main()
+{
+	// Initialize the a 2x2 matrix 
+	TwoByTwoMatrix matrix{};
+
+
+	
+
+	// Get user input for the 4 entries
+	getUserInputForMatrix(matrix);
 
 	// Print out the inputted matrix
-	std::cout << "\nInput matrix is: \n";
-	std::cout << a << '\t' << b << '\n';
-	std::cout << c << '\t' << d << '\n';
+	std::cout << matrix;
+
+	// Output determinant of the matrix
+	//std::cout << findDeterminantOfMatrix(a, b, c, d);
 
 
 	//findEigenvaluesFromEntries();

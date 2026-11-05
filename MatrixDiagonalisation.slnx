@@ -3,5 +3,5 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
-  <Project Path="MatrixDiagonalisation.vcxproj" />
+  <Project Path="MatrixDiagonalisation.vcxproj" Id="f58bd41e-83c1-44d3-9945-64af1a3f9436" />
 </Solution>
